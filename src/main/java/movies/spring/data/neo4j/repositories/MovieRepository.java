@@ -23,8 +23,8 @@ public interface MovieRepository extends GraphRepository<Movie> {
     @Query("match (m:Movie)<-[re:ACTED_IN]-(a:Person) where m.title = {title} return a.name as person, re.roles as cast")
     List<Map<String,Object>> findByTitleRole(@Param("title") String title);
 
-    @Query("MATCH (m:Movie) WHERE m.title =~ ('(?i).*'+{title}+'.*') RETURN m LIMIT {limit}")
-    Collection<Movie> findByTitleContaining(@Param("title") String title, @Param("limit") int limit);
+    @Query("MATCH (m:Movie) WHERE m.title =~ ('(?i).*'+{title}+'.*') RETURN m")
+    Collection<Movie> findByTitleContaining(@Param("title") String title);
 
     @Query("MATCH (m:Movie)<-[:ACTED_IN]-(a:Person) RETURN m.title as movie, collect(a.name) as cast LIMIT {limit}")
     List<Map<String,Object>> graph(@Param("limit") int limit);
