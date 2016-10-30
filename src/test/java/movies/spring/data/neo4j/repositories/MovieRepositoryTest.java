@@ -33,11 +33,11 @@ public class MovieRepositoryTest {
     public MovieRepositoryTest() {
     }
     
-    @Before 
+    @Before
     public void initialize() {
        System.out.println("seeding embedded database");
        Movie matrix = new Movie();
-       matrix.setTitle("The Matrix");
+       matrix.setTitle("荒野求生");
        matrix.setReleased(1999);
 
        instance.save(matrix);
@@ -82,8 +82,8 @@ public class MovieRepositoryTest {
     @DirtiesContext
     public void testFindByTitleContaining() {
         System.out.println("findByTitleContaining");
-        String title = "Matrix";
-        Collection<Movie> result = instance.findByTitleContaining(title, 10);
+        String title = "荒野求生";
+        Collection<Movie> result = instance.findByTitleContaining(title);
         assertNotNull(result);
         assertEquals(1,result.size());
     }

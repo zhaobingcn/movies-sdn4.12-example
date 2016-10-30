@@ -1,5 +1,6 @@
 package movies.spring.data.neo4j.domain;
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.Collection;
@@ -8,7 +9,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
-//@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 @JsonIdentityInfo(generator=JSOGGenerator.class)
 // tag::movie[]
 @NodeEntity
@@ -38,7 +39,7 @@ public class Movie {
         return tagline;
     }
 
-    public Collection<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 

@@ -2,6 +2,7 @@ package movies.spring.data.neo4j.domain;
 
 
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.Collection;
@@ -9,6 +10,7 @@ import java.util.Collection;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 @JsonIdentityInfo(generator=JSOGGenerator.class)
 @RelationshipEntity(type = "ACTED_IN")
 public class Role {

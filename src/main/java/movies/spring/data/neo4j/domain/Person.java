@@ -1,6 +1,7 @@
 package movies.spring.data.neo4j.domain;
 
 
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.neo4j.ogm.annotation.*;
 
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.voodoodyne.jackson.jsog.JSOGGenerator;
 
+//@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 @JsonIdentityInfo(generator=JSOGGenerator.class)
 @NodeEntity
 public class Person {
@@ -44,5 +46,5 @@ public class Person {
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
-    
+
 }
