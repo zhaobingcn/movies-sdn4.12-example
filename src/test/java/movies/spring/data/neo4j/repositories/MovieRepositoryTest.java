@@ -83,7 +83,7 @@ public class MovieRepositoryTest {
     public void testFindByTitleContaining() {
         System.out.println("findByTitleContaining");
         String title = "Matrix";
-        Collection<Movie> result = instance.findByTitleContaining(title, 10);
+        Collection<Movie> result = instance.findByTitleContaining(title);
         assertNotNull(result);
         assertEquals(1,result.size());
     }
