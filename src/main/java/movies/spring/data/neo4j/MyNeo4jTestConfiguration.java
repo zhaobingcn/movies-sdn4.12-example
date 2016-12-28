@@ -28,7 +28,8 @@ public class MyNeo4jTestConfiguration extends Neo4jConfiguration {
         org.neo4j.ogm.config.Configuration config = new org.neo4j.ogm.config.Configuration();
         config
                 .driverConfiguration()
-                .setDriverClassName("org.neo4j.ogm.drivers.embedded.driver.EmbeddedDriver");
+                .setDriverClassName("org.neo4j.ogm.drivers.embedded.driver.EmbeddedDriver")
+                .setURI("file:///ProfessionalSoftware/Neo4jDB/importTest");
         return config;
     }
 

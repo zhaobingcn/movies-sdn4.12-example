@@ -27,8 +27,4 @@ public class MovieController {
         return movieRoleService.toJSONFormat(title).toString();
     }
 
-    @RequestMapping("/graph")
-    public Map<String, Object> graph(@RequestParam(value = "limit", required = false)int limit){
-        return movieService.graph(limit);
-    }
 }

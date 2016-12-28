@@ -9,16 +9,20 @@ import org.neo4j.ogm.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.neo4j.template.Neo4jOperations;
 import org.springframework.data.neo4j.template.Neo4jTemplate;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Map;
 
 
 /**
  * Created by zhzy on 2016/12/26.
  */
+@Service
 public class TestService {
 
     @Autowired
-    private Neo4jTemplate neo4jTemplate;
+    private Neo4jOperations neo4jTemplate;
 
     @Autowired
     private Session session;
@@ -27,6 +31,9 @@ public class TestService {
     public void create(){
 
         Result result = neo4jTemplate.query("match path = (p:Person)-[:ACTED_IN]->(m:Movie) return path", MapUtil.stringMap());
-
+        while(result.iterator().hasNext()){
+            Map<String, Object> a = result.iterator().next();
+            System.out.println(a.entrySet());
+        }
     }
 }

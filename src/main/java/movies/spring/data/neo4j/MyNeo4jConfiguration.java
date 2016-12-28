@@ -43,15 +43,15 @@ public class MyNeo4jConfiguration extends Neo4jConfiguration {
         return new SessionFactory(getConfiguration(), "movies.spring.data.neo4j.domain");
     }
 
-    @Bean
-    @Override
-    public Session getSession() throws Exception {
-        return super.getSession();
-    }
-
-    @Bean
-    public Neo4jOperations getNeo4jTemplate() throws Exception {
-        return new Neo4jTemplate(getSession());
-    }
+//    @Bean
+//    @Override
+//    public Session getSession() throws Exception {
+//        return super.getSession();
+//    }
+//
+//    @Bean
+//    public Neo4jTemplate getNeo4jTemplate() throws Exception {
+//        return new Neo4jTemplate(getSession());
+//    }
 }
 // end::config[]
