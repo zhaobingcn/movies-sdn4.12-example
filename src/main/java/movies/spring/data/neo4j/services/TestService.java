@@ -25,6 +25,8 @@ public class TestService {
 
     @Transactional
     public void create(){
-//        Result result = neo4jOperations.query("match path = (p:Person)-[:ACTED_IN]->(m:Movie) return path", MapUtil.stringMap());
+
+        Result result = neo4jTemplate.query("match path = (p:Person)-[:ACTED_IN]->(m:Movie) return path", MapUtil.stringMap());
+
     }
 }

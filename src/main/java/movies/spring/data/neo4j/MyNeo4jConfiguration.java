@@ -50,7 +50,7 @@ public class MyNeo4jConfiguration extends Neo4jConfiguration {
     }
 
     @Bean
-    public Neo4jTemplate getNeo4jTemplate() throws Exception {
+    public Neo4jOperations getNeo4jTemplate() throws Exception {
         return new Neo4jTemplate(getSession());
     }
 }
