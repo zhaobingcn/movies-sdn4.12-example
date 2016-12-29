@@ -1,5 +1,6 @@
 package movies.spring.data.neo4j.services;
 
+import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Path;
 import org.neo4j.graphdb.index.IndexHits;
 import org.neo4j.graphdb.traversal.Paths;
@@ -31,13 +32,12 @@ public class TestService {
 
     @Transactional
     public void create(){
-
         Result result = neo4jTemplate.query("match path = (p:Person)-[:ACTED_IN]->(m:Movie) return path", MapUtil.stringMap());
-        Iterator<Map<String, Object>> a= result.iterator();
-        while(a.hasNext()){
-            Map<String, Object> b = a.next();
-            Path p = (Path)b.get("path");
-            System.out.println(p.endNode());
-        }
+//        Iterator<Map<String, Object>> a= result.iterator();
+//        while(a.hasNext()){
+//            Map<String, Object> b = a.next();
+//            Path p = (Path)b.get("path");
+//            System.out.println(p.endNode());
+//        }
     }
 }

@@ -53,5 +53,6 @@ public class MyNeo4jConfiguration extends Neo4jConfiguration {
 //    public Neo4jTemplate getNeo4jTemplate() throws Exception {
 //        return new Neo4jTemplate(getSession());
 //    }
+
 }
 // end::config[]
