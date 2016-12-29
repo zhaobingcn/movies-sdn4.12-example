@@ -6,6 +6,7 @@ import movies.spring.data.neo4j.MyNeo4jTestConfiguration;
 import movies.spring.data.neo4j.domain.Movie;
 import movies.spring.data.neo4j.domain.Person;
 import movies.spring.data.neo4j.domain.Role;
+import movies.spring.data.neo4j.services.TestService;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -29,6 +30,11 @@ public class MovieRepositoryTest {
     private MovieRepository instance;
      @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private TestService testService;
+
+
     
     public MovieRepositoryTest() {
     }
@@ -136,5 +142,11 @@ public class MovieRepositoryTest {
 //        Map<String,Object> map = aaa.get(0);
 //        String[] cast = (String[])map.get("cast");
 //        String movie = (String)map.get("person");
+    }
+
+    @Test
+    @DirtiesContext
+    public void testa(){
+        testService.create();
     }
 }
